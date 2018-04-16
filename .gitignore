@@ -1,0 +1,4 @@
+*.swp
+assets/
+*.log
+node_modules/
