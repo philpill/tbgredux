@@ -3,13 +3,35 @@ const webpack = require('webpack');
 
 module.exports = 
     {
+        module: {
+            rules: [
+                { 
+                    test: /\.ts$/, 
+                    use: 'ts-loader',
+                    exclude: /node_modules/
+                }
+            ]
+        },
         entry: {
-            app: './src/js/main.js'
+            vendor: ['three'],
+            app: './src/ts/main.ts'
         },
         output: {
             path: path.resolve(__dirname, 'assets/js'),
-            filename: '[name].js'
+            chunkFilename: '[name].js',
+            publicPath: '/'
         },
-        plugins: [
-        ]
+        optimization: {
+            minimize: false,
+            splitChunks: {
+                cacheGroups: {
+                    vendor: {
+                        chunks: 'initial',
+                        name: 'vendor',
+                        test: 'vendor',
+                        enforce: true
+                   },
+                }
+            }
+        }
     }
