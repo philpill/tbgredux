@@ -4,10 +4,12 @@
   "description": "",
   "main": "webpack.config.js",
   "dependencies": {
-    "pixi.js": "^4.7.3",
+    "matter-js": "^0.14.1",
     "three": "^0.92.0"
   },
   "devDependencies": {
+    "@types/matter-js": "^0.10.0",
+    "@types/three": "^0.91.10",
     "ts-loader": "^4.2.0",
     "typescript": "^2.8.3",
     "webpack": "^4.5.0",
