@@ -1,6 +1,7 @@
 {
     "include": ["src/ts/**/*.ts"],
     "compilerOptions": {
+        "traceResolution": true,
         "lib": ["ES2015", "DOM"]
     }
 }

@@ -1,5 +1,5 @@
 
-export interface ISystem {
+export default interface ISystem {
 
     init();
     update();

@@ -1,4 +1,6 @@
-import { ISystem } from './isystem';
+import ISystem from './isystem';
+
+import RenderSystem from './render.ts';
 
 export default class SystemManager {
 
@@ -7,6 +9,7 @@ export default class SystemManager {
     constructor() {
         
         this.systems = [];
+        this.register(new RenderSystem());
     }
 
     register(system: ISystem) {
@@ -15,6 +18,8 @@ export default class SystemManager {
     }
 
     init() {
+
+        console.log('SystemManager.init()');
 
         this.systems.map((system: ISystem) => {
 
