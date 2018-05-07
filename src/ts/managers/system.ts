@@ -1,14 +1,17 @@
-import ISystem from './isystem';
+import ISystem from '../systems/isystem';
+import IManager from '../managers/imanager';
+import NodeManager from '../managers/node.ts';
+import RenderSystem from '../systems/render.ts';
 
-import RenderSystem from './render.ts';
+export default class SystemManager implements IManager {
 
-export default class SystemManager {
-
-    systems: ISystem[];
+    private systems: ISystem[];
+    private nodeManager: NodeManager;
 
     constructor() {
         
         this.systems = [];
+
         this.register(new RenderSystem());
     }
 
@@ -27,11 +30,16 @@ export default class SystemManager {
         });
     }
 
-    update() {
+    update(delta: number) {
         
         this.systems.map((system: ISystem) => {
             
-            system.update();
+            system.update(delta);
         });
+    }
+
+    getAll() {
+
+        return this.systems;
     }
 }

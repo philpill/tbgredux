@@ -1,7 +1,11 @@
 import ISystem from './isystem';
-import * as Matter from 'matter-js';
+import IComponent from '../components/icomponent';
+import Node from '../components/node';
+import { System as SystemType } from '../enums.ts';
 
 export default class PhysicsSystem implements ISystem  {
+
+    systemType = SystemType.PHYSICS;
 
     constructor() {
 
@@ -11,7 +15,13 @@ export default class PhysicsSystem implements ISystem  {
 
     }
 
-    update() {
+    update(delta: number) {
+
+    }
+
+    getNodesByComponents(components: IComponent[]): Node[] {
+
+        return [];
 
     }
 }

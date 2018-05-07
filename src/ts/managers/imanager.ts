@@ -1,5 +1,5 @@
 export default interface IManager {
 
     init();
-    update();
+    update(time: number);
 }
