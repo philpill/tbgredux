@@ -1,6 +1,7 @@
 import IEntity from './ientity';
 import IComponent from '../components/icomponent';
 import RenderComponent from '../components/render.ts';
+import InputComponent from '../components/input.ts';
 
 export default class BlockEntity implements IEntity {
 
@@ -8,11 +9,11 @@ export default class BlockEntity implements IEntity {
 
     constructor() {
 
-        this.components = [];
 
         let render = new RenderComponent();
+        let input = new InputComponent();
 
-        this.components.push(render);
+        this.components = [render, input];
     }
 
     init() {

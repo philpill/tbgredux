@@ -1,19 +1,22 @@
 import * as THREE from 'three';
 import SystemManager from './managers/system.ts';
 import EntityManager from './managers/entity.ts';
+import NodeManager from './managers/node.ts';
 import ISystem from './systems/isystem';
 import IEntity from './entities/ientity';
+import Node from './components/node';
 
 export class Main {
 
     private systemManager: SystemManager;
     private entityManager: EntityManager;
+    private nodeManager: NodeManager;
 
     constructor() {
 
         this.entityManager = new EntityManager();
         this.systemManager = new SystemManager();
-
+        this.nodeManager = new NodeManager();
     }
 
     init() {
@@ -28,19 +31,20 @@ export class Main {
         let entities = this.entityManager.getAll();
 
         // load entities into systems to get nodes
-        let nodes = systems.map((system: ISystem) => {
+        let nodes: Node[] = [];
+        
+        systems.map((system: ISystem) => {
 
-            return entities.map((entity: IEntity) => {
+            entities.map((entity: IEntity) => {
 
-                return system.getNodesByComponents(entity.components);
+                nodes = [...nodes, ...system.getNodesByComponents(entity.components)];
             });
         });
+        
+        // load nodes
+        this.nodeManager.insertNodes(nodes);
 
         // load nodes into systems
-
-        nodes = [].concat.apply([], nodes);
-
-        console.log(nodes);
 
         this.update();
     }

@@ -2,7 +2,7 @@ import ISystem from './isystem';
 import IComponent from '../components/icomponent';
 import RenderComponent from '../components/render.ts';
 import Node from '../components/node.ts';
-import { System as SystemType } from '../enums.ts';
+import { Component as ComponentType, System as SystemType } from '../enums.ts';
 
 import * as THREE from 'three';
 
@@ -35,18 +35,17 @@ export default class RenderSystem implements ISystem {
         this.renderer.render(this.scene, this.camera);
     }
 
-    update(delta: number) {
+    update(time: number) {
 
     }
 
     getNodesByComponents(components: IComponent[]): Node[] {
 
         components = components.filter((component: IComponent) => {
-
-            return component instanceof RenderComponent;
+            return component.componentType === ComponentType.RENDER || component.componentType === ComponentType.PHYSICS;
         });
 
-        let node = new Node(components);
+        let node = new Node(this.systemType, components);
 
         return [node];
     }

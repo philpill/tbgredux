@@ -1,10 +1,14 @@
 import IComponent from './icomponent';
+import { System } from '../enums';
 
 export default class Node {
 
     components: IComponent[];
+    system: System;
 
-    constructor(components?: IComponent[]) {
+    constructor(system: System, components?: IComponent[]) {
+
+        this.system = system;
 
         this.components = [];
 

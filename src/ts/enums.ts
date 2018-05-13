@@ -8,9 +8,9 @@ enum System {
 
 enum Component {
     
+    INPUT,
     PHYSICS,
     RENDER,
-    USER
 }
 
 export { System, Component }
