@@ -6,6 +6,6 @@ export default interface ISystem {
 
     systemType: SystemType;
     init();
-    update(delta: number);
+    update(delta: number, nodes: Node[]);
     getNodesByComponents(components: IComponent[]): Node[];
 }

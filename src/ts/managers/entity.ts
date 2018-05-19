@@ -6,9 +6,18 @@ export default class EntityManager implements IManager {
 
     private entities: IEntity[];
 
-    constructor() {
+    private static instance: EntityManager;
+
+    private constructor() {
 
         this.entities = [];
+    }
+
+    static getInstance() {
+
+        this.instance = this.instance || new EntityManager();
+
+        return this.instance;
     }
 
     init() {

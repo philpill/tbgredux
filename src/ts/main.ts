@@ -1,7 +1,7 @@
 import * as THREE from 'three';
-import SystemManager from './managers/system.ts';
-import EntityManager from './managers/entity.ts';
-import NodeManager from './managers/node.ts';
+import SystemManager from './managers/system';
+import EntityManager from './managers/entity';
+import NodeManager from './managers/node';
 import ISystem from './systems/isystem';
 import IEntity from './entities/ientity';
 import Node from './components/node';
@@ -14,9 +14,9 @@ export class Main {
 
     constructor() {
 
-        this.entityManager = new EntityManager();
-        this.systemManager = new SystemManager();
-        this.nodeManager = new NodeManager();
+        this.entityManager = EntityManager.getInstance();
+        this.systemManager = SystemManager.getInstance();
+        this.nodeManager = NodeManager.getInstance();
     }
 
     init() {
@@ -38,6 +38,12 @@ export class Main {
             entities.map((entity: IEntity) => {
 
                 nodes = [...nodes, ...system.getNodesByComponents(entity.components)];
+
+                nodes.map((node: Node) => {
+                    
+
+
+                });
             });
         });
         

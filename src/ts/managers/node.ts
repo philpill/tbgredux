@@ -10,10 +10,18 @@ export interface INodes {
 export default class NodeManager implements IManager {
 
     nodes: INodes;
+    private static instance: NodeManager;
 
-    constructor() {
+    private constructor() {
 
         this.nodes = {};
+    }
+
+    static getInstance() {
+
+        this.instance = this.instance || new NodeManager();
+
+        return this.instance;
     }
 
     init() {

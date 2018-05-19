@@ -35,8 +35,11 @@ export default class RenderSystem implements ISystem {
         this.renderer.render(this.scene, this.camera);
     }
 
-    update(time: number) {
+    update(time: number, nodes: Node[]) {
 
+        nodes.map((node: Node) => {
+        
+        });
     }
 
     getNodesByComponents(components: IComponent[]): Node[] {
