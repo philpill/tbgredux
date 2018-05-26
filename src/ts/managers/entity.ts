@@ -1,6 +1,6 @@
 import IEntity from '../entities/ientity';
 import IManager from './imanager';
-import Block from '../entities/block.ts';
+import Block from '../entities/block';
 
 export default class EntityManager implements IManager {
 

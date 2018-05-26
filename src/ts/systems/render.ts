@@ -1,8 +1,8 @@
 import ISystem from './isystem';
-import IComponent from '../components/icomponent';
-import RenderComponent from '../components/render.ts';
-import Node from '../components/node.ts';
-import { Component as ComponentType, System as SystemType } from '../enums.ts';
+import { IComponent, IRenderComponent } from '../components/icomponent';
+import RenderComponent from '../components/render';
+import Node from '../components/node';
+import { Component as ComponentType, System as SystemType } from '../enums';
 
 import * as THREE from 'three';
 
@@ -38,7 +38,22 @@ export default class RenderSystem implements ISystem {
     update(time: number, nodes: Node[]) {
 
         nodes.map((node: Node) => {
-        
+
+            let component = node.components[ComponentType.RENDER][0] as IRenderComponent;
+
+            let id = component.threeId;
+
+            if (!id) {
+                var geometry = new THREE.BoxGeometry( 1, 1, 1 );
+                var material = new THREE.MeshBasicMaterial( { color: 0x00ff00 } );
+                var cube = new THREE.Mesh( geometry, material );
+
+                component.threeId = cube.id;
+                component.threeObj = cube;
+
+                this.scene.add(cube);
+            }
+
         });
     }
 

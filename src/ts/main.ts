@@ -37,11 +37,13 @@ export class Main {
 
             entities.map((entity: IEntity) => {
 
-                nodes = [...nodes, ...system.getNodesByComponents(entity.components)];
+                let components = system.getNodesByComponents(entity.components) || [];
+
+                nodes = [...nodes, ...components];
 
                 nodes.map((node: Node) => {
                     
-
+                    
 
                 });
             });
@@ -60,15 +62,15 @@ export class Main {
         let now = performance.now();
 
         let delta = (now - before)/1000;
-        
+
         // magic number to prevent massive 
         // delta when tab not active
         delta = Math.min(delta, 0.1); 
-        
+
         requestAnimationFrame(() => {
 
             this.systemManager.update(delta);
-            
+
             this.update(now);
         });
     }

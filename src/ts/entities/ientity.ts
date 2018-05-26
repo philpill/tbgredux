@@ -1,4 +1,4 @@
-import IComponent from '../components/icomponent';
+import { IComponent } from '../components/icomponent';
 
 export default interface IEntity {
 

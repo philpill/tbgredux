@@ -1,7 +1,7 @@
 import IEntity from './ientity';
-import IComponent from '../components/icomponent';
-import RenderComponent from '../components/render.ts';
-import InputComponent from '../components/input.ts';
+import { IComponent } from '../components/icomponent';
+import RenderComponent from '../components/render';
+import InputComponent from '../components/input';
 
 export default class BlockEntity implements IEntity {
 

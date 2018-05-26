@@ -1,7 +1,7 @@
 import ISystem from '../systems/isystem';
 import IManager from '../managers/imanager';
-import NodeManager from '../managers/node.ts';
-import RenderSystem from '../systems/render.ts';
+import NodeManager from '../managers/node';
+import RenderSystem from '../systems/render';
 
 export default class SystemManager implements IManager {
 

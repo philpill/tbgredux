@@ -1,7 +1,15 @@
 import { Component as ComponentType } from '../enums';
 
-export default interface IComponent {
+interface IRenderComponent extends IComponent {
+
+    threeId: number;
+    threeObj: any;
+}
+
+interface IComponent {
     
     componentType: ComponentType;
     init();
 }
+
+export { IComponent, IRenderComponent };

@@ -33,9 +33,10 @@ export default class NodeManager implements IManager {
     }
 
     insertNode(node: Node) {
-        
-        this.nodes[node.system] = [node, ...this.nodes[node.system]];
-        
+
+        let nodes = this.nodes[node.system] || [];
+
+        this.nodes[node.system] = [node, ...nodes];
     }
 
     insertNodes(nodes: Node[]) {

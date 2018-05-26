@@ -1,4 +1,4 @@
-import IComponent from './icomponent';
+import { IComponent } from './icomponent';
 import { System } from '../enums';
 
 export interface IComponents {
@@ -21,7 +21,9 @@ export default class Node {
 
     addComponent(component: IComponent) {
 
-        this.components[component.componentType] = [component, ...this.components[component.componentType]];
+        let components = this.components[component.componentType] || [];
+
+        this.components[component.componentType] = [component, ...components];
     }
 
     addComponents(components: IComponent[]) {

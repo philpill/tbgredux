@@ -1,5 +1,5 @@
-import IComponent from './icomponent';
-import { Component as ComponentType } from '../enums.ts';
+import { IComponent } from './icomponent';
+import { Component as ComponentType } from '../enums';
 
 export default class RenderComponent implements IComponent {
 

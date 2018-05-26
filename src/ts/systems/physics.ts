@@ -1,5 +1,5 @@
 import ISystem from './isystem';
-import IComponent from '../components/icomponent';
+import { IComponent } from '../components/icomponent';
 import Node from '../components/node';
 import { System as SystemType } from '../enums.ts';
 

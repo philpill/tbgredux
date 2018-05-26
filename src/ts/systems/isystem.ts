@@ -1,6 +1,6 @@
-import IComponent from '../components/icomponent';
+import { IComponent } from '../components/icomponent';
 import Node from '../components/node';
-import { System as SystemType } from '../enums.ts';
+import { System as SystemType } from '../enums';
 
 export default interface ISystem {
 
