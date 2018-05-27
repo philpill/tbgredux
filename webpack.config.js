@@ -5,7 +5,7 @@ module.exports =
     {
         mode: 'development',
         resolve: {  
-            extensions: ['.ts', '.js']
+            extensions: ['.d.ts', '.ts', '.js']
         },
         module: {
             rules: [

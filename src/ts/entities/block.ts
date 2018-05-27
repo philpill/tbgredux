@@ -9,7 +9,6 @@ export default class BlockEntity implements IEntity {
 
     constructor() {
 
-
         let render = new RenderComponent();
         let input = new InputComponent();
 
